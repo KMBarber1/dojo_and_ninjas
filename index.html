@@ -1,0 +1,49 @@
+INSERT INTO dojos (name)
+VALUES ("Coding"),("Cat"),("Dog");
+
+DELETE FROM dojos
+WHERE id < 4;
+
+INSERT INTO dojos (name)
+VALUES ("Bird"),("Catnip"),("Fish");
+
+INSERT INTO ninjas (first_name, last_name, dojo_id)
+VALUES ("Alexander", "Valley", "1"), ("Sanoma", "Valley", "2"), ("Napa", "Valley", "3"), ("Hunter", "Valley", "1"), ("Trinity", "Valley", "2"), ("Kate", "Barber", "3"), ("Matthew", "Barber", "1"), ("Terri", "Southerland", "2"), ("Maggie", "Staunton", "3");
+
+<!-- SELECT * FROM dojos;
+
+Select * From ninjas; -->
+
+<!-- retrieves all of the ninjas in all of the dojos -->
+SELECT * FROM ninjas
+JOIN ninjas ON dojos.id = ninjas.dojo._id
+LEFT JOIN dojos as dojos2 ON dojos.id = ninjas.ninja_id;
+
+
+<!-- provided solution -->
+<!-- Video Walkthrough
+INSERT INTO dojos (name)
+VALUES ("Chicago"), ("Seattle"),("Online");
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM dojos;
+
+INSERT INTO ninjas (first_name,last_name,age,dojo_id)
+VALUES ("Adrien","Dion",39,4),("Anne","Jurack",34,4),("Ryan","Magley",30,4);
+
+INSERT INTO ninjas (first_name,last_name,age,dojo_id)
+VALUES ("Marisa","Goode",37,5),("Todd","Enders",36,5),("Sadie","Flick",29,5);
+
+INSERT INTO ninjas (first_name,last_name,age,dojo_id)
+VALUES ("Mr. Nibbles","Pancakes",54,6),("Benny Bob","McBob",65,6),("Mitch","Golden",26,6);
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 4;
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+	WHERE dojos.id = (SELECT id FROM dojos ORDER BY id DESC LIMIT 1);
+    
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1); -->
